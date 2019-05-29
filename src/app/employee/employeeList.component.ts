@@ -16,19 +16,11 @@ export class EmployeeListComponent implements OnInit {
 
     constructor(private _employeeService: EmployeeService) {
 
-        // this.employees = [
-        //     { fullName: 'Tanveer Shaikh', staffNo: '1',gender:'Male' },
-        //     { fullName: 'Nasrin Shaikh', staffNo: '2', gender: 'Female'},
-        //     { fullName: 'Shahraan Shaikh', staffNo: '3', gender: 'Male' },
-        //     { fullName: 'parveen Shaikh', staffNo: '4', gender: 'Female' },
-        //     { fullName: 'Shahid Shaikh', staffNo: '4', gender: 'Male' },
-        //     { fullName: 'Shahid Shaikh', staffNo: '4', gender: 'Male' }
-        // ];
 
     }
     ngOnInit()
     {
-      this.employees= this._employeeService.getEmployees();
+      this._employeeService.getEmployees().subscribe((employeeData) => this.employees = employeeData);
     }
 
 
